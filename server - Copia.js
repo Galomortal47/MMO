@@ -4,6 +4,27 @@ require(__dirname+'/Resources/config.js');
 var fs = require('fs');
 var net = require('net');
 
+//load the initializers
+var init_files = fs.readdirSync(__dirname+"/Initializers");
+init_files.forEach(function(initFiles){
+console.log('loading initializers' + initFiles);
+require(__dirname + "/Initializers/" + initFiles);
+})
+//load models
+var model_files = fs.readdirSync(__dirname+"/Models");
+model_files.forEach(function(modelFiles){
+console.log('loading Models' + modelFiles);
+require(__dirname + "/Models/" + modelFiles);
+})
+//load maps
+maps = {};
+var map_files = fs.readdirSync(config.data_paths.maps);
+map_files.forEach(function(mapFiles){
+console.log('loading map' + mapFiles);
+var map = require(config.data_paths.maps + mapFiles);
+maps[map.room] = map
+})
+
 net.createServer(function(socket){
 
 console.log("socket connectted")
