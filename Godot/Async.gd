@@ -6,7 +6,7 @@ var packet
 var init = true
 
 func _ready():
-	socket.listen(  8082 ,"::1")
+	socket.listen(  8083 ,"*")
 	packet = socket.take_connection()
 
 func _process(delta):

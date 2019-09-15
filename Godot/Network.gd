@@ -3,7 +3,7 @@ extends Node
 var packet = StreamPeerTCP.new()
 var i = 0
 func _ready():
-	packet.connect_to_host( "::1", 8082 )
+	packet.connect_to_host( "34.69.136.132", 8082 )
 
 var json = {
 	"lv":3,
