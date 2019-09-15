@@ -4,10 +4,10 @@ var packet = StreamPeerTCP.new()
 var i = 0
 func _ready():
 	packet.connect_to_host( "34.69.136.132", 8082 )
+#	packet.connect_to_host( "34.69.136.132", 8082 )
+	print("connected")
 
 var json = {
-	"lv":3,
-	"hp":4,
 	"pos_x":0,
 	"pos_y":0
 }

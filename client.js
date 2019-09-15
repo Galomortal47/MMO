@@ -13,7 +13,7 @@ module.exports = function(){
 		//send the conection hand shake to the client
 		var packet = 'hello';
 		console.log("packet was send " + packet);
-		client.socket.write(packet)
+		// client.socket.write(packet)
 		
 		console.log('client initiated')
 		//do stuff

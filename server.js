@@ -8,11 +8,14 @@ require('./packet.js')
 net.createServer(function(socket){
 
 console.log("socket connected")
+socket.write('hello')
+
 var c_inst = new require('./client.js');
 var thisClient = new c_inst();
 
-thisClient.socket = socket;
-thisClient.initiate();
+
+// thisClient.socket = socket;
+// thisClient.initiate();
 
 
 	socket.on('error', thisClient.error); 
