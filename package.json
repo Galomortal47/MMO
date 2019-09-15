@@ -5,6 +5,7 @@
 	"dependencies": {
 		"minimist": "*",
 		"extend": "*",
+		"performance-now": "*",
 		"binary-parser": "*",
 		"mongoose": "*",
 		"underscore": "*"
