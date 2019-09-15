@@ -3,24 +3,23 @@
 require(__dirname+'/Resources/config.js');
 var fs = require('fs');
 var net = require('net');
-require('./packet.js')
 
 net.createServer(function(socket){
 
-console.log("socket connected")
-var c_inst = new require('./client.js');
-var thisClient = new c_inst();
+console.log("socket connectted")
 
-thisClient.socket = socket;
-thisClient.initiate();
-
-
-	socket.on('error', thisClient.error); 
-	socket.on('end', thisClient.end);  
-	socket.on('data', thisClient.data);  
+	socket.on('error', function(err){
+		console.log("socket connectted " + err,toString()); 
+	});
+	socket.on('end', function(){
+		console.log("socket closed"); 
+	});
+	socket.on('data', function(data){
+		console.log("socket connectted " + data,toString()); 
+	});
 }).listen(config.port);
 
-console.log("2 Initizlie complete server runing on port: " + config.port + " for env " +config.environment);
+console.log("Initizlie complete server runing on port: " + config.port + " for env " +config.environment);
 //console.log(maps)
 //console.log(config.database);
 
