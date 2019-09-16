@@ -6,7 +6,7 @@ var packet
 var init = true
 
 func _ready():
-	socket.listen(8084)
+	socket.listen(8082)
 	packet = socket.take_connection()
 	print("listening")
 

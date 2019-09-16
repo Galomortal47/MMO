@@ -9,12 +9,12 @@ module.exports = function(){
 	//this.socket = {}
 	//this.user = {}
 	
-	this.initiate = function(){
+	this.initiate = function(ip){
 		var client = this;
 		//send the conection hand shake to the client
 		var packet = 'hello';
 		console.log("packet was send " + packet);
-		// client.socket.write(packet)
+		client.socket.write(packet)
 		
 		console.log('client initiated')
 		//do stuff
