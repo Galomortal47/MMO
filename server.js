@@ -4,6 +4,7 @@ require(__dirname+'/Resources/config.js');
 var fs = require('fs');
 var net = require('net');
 require('./packet.js')
+require('./test.js');
 
 net.createServer(function(socket){
 
