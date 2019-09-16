@@ -3,11 +3,13 @@
 	"version": "0.0.1",
 	"private": true,
 	"dependencies": {
-		"minimist": "*",
-		"extend": "*",
-		"performance-now": "*",
 		"binary-parser": "*",
+		"colors": "^1.3.3",
+		"extend": "*",
+		"minimist": "*",
 		"mongoose": "*",
+		"performance-now": "*",
+		"readline-sync": "^1.4.10",
 		"underscore": "*"
 	}
 }
