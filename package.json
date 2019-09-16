@@ -9,7 +9,14 @@
 		"minimist": "*",
 		"mongoose": "*",
 		"performance-now": "*",
+		"pkg": "^4.4.0",
 		"readline-sync": "^1.4.10",
 		"underscore": "*"
+	},
+	"bin" : "server.js",
+	"pkg":{
+	"assets":[
+	"views/**/*"
+	]
 	}
 }

@@ -1,0 +1,14 @@
+{
+	"name": "mmosvr",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"pkg": "^4.4.0",
+	},
+	"bin" : "test.js",
+	"pkg":{
+	"assets":[
+	"views/**/*"
+	]
+	}
+}
