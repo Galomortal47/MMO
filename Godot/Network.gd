@@ -30,9 +30,12 @@ func _process(delta):
 		if get_child(i).main:
 			json.p1.pos_x = get_child(i).motion.x
 			json.p1.pos_y = get_child(i).motion.y
+#			json.p1.pos_x = get_child(i).get_position().x
+#			json.p1.pos_y = get_child(i).get_position().y
 		else:
-			get_child(i).motion.x = json.p1.pos_x
-			get_child(i).motion.y = json.p1.pos_y
+			get_child(i).motion.x = json.p2.pos_x
+			get_child(i).motion.y = json.p2.pos_y
+#			get_child(i).set_position(Vector2(json.p2.pos_x,json.p2.pos_y))
 	var peerstream = PacketPeerStream.new()
 	peerstream.set_stream_peer(packet)
 	if peerstream.get_available_packet_count() > 0:
@@ -40,8 +43,8 @@ func _process(delta):
 		string = data.get_string_from_ascii()
 		json2 = parse_json(string)
 		print(json2.p1)
-		json.p2.pos_x = json.p1.pos_x
-		json.p2.pos_y = json.p1.pos_y
+		json.p2.pos_x = json2.p1.pos_x
+		json.p2.pos_y = json2.p1.pos_y
 	else:
 		packet.put_string(to_json(json))
 
