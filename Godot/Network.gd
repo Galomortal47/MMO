@@ -42,7 +42,6 @@ func _process(delta):
 		data = (peerstream.get_packet())
 		string = data.get_string_from_ascii()
 		json2 = parse_json(string)
-		print(json2.p1)
 		json.p2.pos_x = json2.p1.pos_x
 		json.p2.pos_y = json2.p1.pos_y
 	else:
@@ -51,15 +50,3 @@ func _process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func save():
-	if file.open(path, File.WRITE) != 0:
-		return
-	file.store_line(to_json(json))
-	file.close()
-#	pass
-
-func loader():
-	if file.open(path, File.READ) != 0:
-		return
-	json = parse_json(file.get_line())
-	file.close()
