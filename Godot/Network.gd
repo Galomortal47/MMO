@@ -5,6 +5,9 @@ var path = "res://save.json"
 var file = File.new()
 var packet = StreamPeerTCP.new()
 var i = 0
+var data
+var string
+var json2
 var json = {
 	"p1": {
 	"pos_x":00,
@@ -17,6 +20,7 @@ var json = {
 }
 
 func _ready():
+	json2 = json
 	packet.connect_to_host( "34.69.136.132", 8082)
 #	packet.connect_to_host( "34.69.136.132", 8082 )
 	print("connected")
@@ -26,17 +30,18 @@ func _process(delta):
 		if get_child(i).main:
 			json.p1.pos_x = get_child(i).get_position().x
 			json.p1.pos_y = get_child(i).get_position().y
-			save()
 		else:
-			loader()
-			get_child(i).set_position(Vector2( json.p1.pos_x+100,json.p1.pos_y))
+			get_child(i).set_position(Vector2( json.p2.pos_x+100,json.p2.pos_y))
 	var peerstream = PacketPeerStream.new()
 	peerstream.set_stream_peer(packet)
 	if peerstream.get_available_packet_count() > 0:
-		var data = (peerstream.get_packet())
-		print(data.get_string_from_ascii())
+		data = (peerstream.get_packet())
+		string = data.get_string_from_ascii()
+		json2 = to_json(string)
+		var json3 = parse_json(string)
+		print(json3.p1)
 	else:
-		packet.put_string(str(json))
+		packet.put_string(to_json(json))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
