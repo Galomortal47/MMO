@@ -42,6 +42,7 @@ func _process(delta):
 		data = (peerstream.get_packet())
 		string = data.get_string_from_ascii()
 		json2 = parse_json(string)
+		print(json2)
 		json.p2.pos_x = json2.p1.pos_x
 		json.p2.pos_y = json2.p1.pos_y
 	else:

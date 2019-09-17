@@ -1,0 +1,17 @@
+{
+	"name": "mmosvr",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"extend": "*",
+		"minimist": "*",
+		"performance-now": "*",
+		"underscore": "*"
+	},
+	"bin" : "server.js",
+	"pkg":{
+	"assets":[
+	"views/**/*"
+	]
+	}
+}
