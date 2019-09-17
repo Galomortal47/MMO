@@ -1,5 +1,5 @@
 var net = require('net');
-require(__dirname+'/Resources/config.js');
+require(./config.js');
 
 
 	//these objects will be added at runtime....

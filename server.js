@@ -1,6 +1,6 @@
 
 //import required libaries
-require(__dirname+'/Resources/config.js');
+require('./config.js');
 var fs = require('fs');
 var net = require('net');
 require('./packet.js')
