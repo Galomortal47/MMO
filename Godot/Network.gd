@@ -37,9 +37,10 @@ func _process(delta):
 	if peerstream.get_available_packet_count() > 0:
 		data = (peerstream.get_packet())
 		string = data.get_string_from_ascii()
-		json2 = to_json(string)
-		var json3 = parse_json(string)
-		print(json3.p1)
+		json2 = parse_json(string)
+		print(json2.p1)
+		json.p2.pos_x = json.p1.pos_x
+		json.p2.pos_y = json.p1.pos_y
 	else:
 		packet.put_string(to_json(json))
 
