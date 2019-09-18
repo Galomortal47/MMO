@@ -6,16 +6,12 @@
 		"extend": "*",
 		"minimist": "*",
 		"performance-now": "*",
-		"underscore": "*",
-		"nodemon": "*",
-		"socket.io": "*",
-		"shortid": "*",
-		"express": "*"
+		"underscore": "*"
 	},
-	"bin": "server.js",
-	"pkg": {
-		"assets": [
-			"views/**/*"
-		]
+	"bin" : "server.js",
+	"pkg":{
+	"assets":[
+	"views/**/*"
+	]
 	}
 }

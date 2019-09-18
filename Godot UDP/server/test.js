@@ -1,20 +1,12 @@
-var net = require('net');
-require('./config.js');
+var PORT = 33333;
+var HOST = '127.0.0.1';
 
+var dgram = require('dgram');
+var message = new Buffer('My KungFu is Good!');
 
-	//these objects will be added at runtime....
-	//this.socket = {}
-	//this.user = {}
-	var packet = 'jag';
-	var client = this;
-		//send the conection hand shake to the client
-		console.log("packet was send " + packet);
-	const connect = net.createConnection(config.port,"34.69.136.132");
-		connect.write(packet);
-	connect.on('data', function (data) {
-        console.log('Server return data : ' + data);
-    });
-		// client.socket.write(packet)
-		
-		console.log('client initiated')
-		//do stuff
+var client = dgram.createSocket('udp4');
+client.send(message, 0, message.length, PORT, HOST, function(err, bytes) {
+  if (err) throw err;
+  console.log('UDP message sent to ' + HOST +':'+ PORT);
+  client.close();
+});
