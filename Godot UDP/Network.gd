@@ -3,7 +3,7 @@ extends Node
 var path = "res://save.json"
 
 var file = File.new()
-var packet = StreamPeerTCP.new()
+var packet = PacketPeerUDP.new()
 var i = 0
 var data
 var string
@@ -21,7 +21,8 @@ var json = {
 
 func _ready():
 	json2 = json
-	packet.connect_to_host( "34.69.136.132", 8082)
+	packet.set_dest_address( "34.69.136.132", 8082)
+	packet.listen(  8082, "*")
 #	packet.connect_to_host( "34.69.136.132", 8082 )
 	print("connected")
 
@@ -36,17 +37,16 @@ func _process(delta):
 			get_child(i).motion.x = json.p2.pos_x
 			get_child(i).motion.y = json.p2.pos_y
 #			get_child(i).set_position(Vector2(json.p2.pos_x,json.p2.pos_y))
-	var peerstream = PacketPeerStream.new()
-	peerstream.set_stream_peer(packet)
-	if peerstream.get_available_packet_count() > 0:
-		data = (peerstream.get_packet())
+	if packet.get_available_packet_count() > 0:
+		data = (packet.get_packet())
 		string = data.get_string_from_ascii()
+		print(string)
 		json2 = parse_json(string)
 		print(json2)
-		json.p2.pos_x = json2.p1.pos_x
-		json.p2.pos_y = json2.p1.pos_y
+#		json.p2.pos_x = json2.p1.pos_x
+#		json.p2.pos_y = json2.p1.pos_y
 	else:
-		packet.put_string(to_json(json))
+		packet.put_var(to_json(json))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

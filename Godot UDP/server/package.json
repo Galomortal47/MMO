@@ -6,7 +6,10 @@
 		"extend": "*",
 		"minimist": "*",
 		"performance-now": "*",
-		"underscore": "*"
+		"underscore": "*",
+		"nodemon": "*",
+		"socket.io": "*",
+		"shortid": "*"
 	},
 	"bin" : "server.js",
 	"pkg":{
