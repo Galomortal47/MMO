@@ -9,12 +9,13 @@
 		"underscore": "*",
 		"nodemon": "*",
 		"socket.io": "*",
-		"shortid": "*"
+		"shortid": "*",
+		"express": "*"
 	},
-	"bin" : "server.js",
-	"pkg":{
-	"assets":[
-	"views/**/*"
-	]
+	"bin": "server.js",
+	"pkg": {
+		"assets": [
+			"views/**/*"
+		]
 	}
 }
