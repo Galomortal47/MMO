@@ -41,7 +41,6 @@ func _process(delta):
 	if packet.get_available_packet_count() > 0:
 		data = (packet.get_packet())
 		string = data.get_string_from_utf8()
-		print(string)
 		json2 = parse_json(string)
 		print(json2)
 #		json.p2.pos_x = json2.p1.pos_x

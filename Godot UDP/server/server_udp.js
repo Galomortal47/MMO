@@ -10,9 +10,9 @@ server.on('listening', function() {
 });
 
 server.on('message', function(message, remote) {
- console.log(remote.address + ':' + remote.port +' - ' + message);
+var msg = new Buffer(JSON.stringify(message));
+console.log(remote.address + ':' + remote.port +' - ' + msg);
 var dgram = require('dgram');
-var msg = new Buffer(message);
 var client = dgram.createSocket('udp4');
 client.send(msg, 0, msg.length, PORT2, HOST, function(err, bytes) {
   if (err) throw err;
