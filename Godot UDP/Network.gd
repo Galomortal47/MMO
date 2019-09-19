@@ -21,8 +21,8 @@ var port = 33333
 
 func _ready():
 	json2 = json
-#	packet.set_dest_address( "127.0.0.1", port)
-	packet.set_dest_address( "34.69.136.132", port)
+	packet.set_dest_address( "127.0.0.1", port)
+#	packet.set_dest_address( "34.69.136.132", port)
 	packet.listen(  port+1, "*")
 #	packet.connect_to_host( "34.69.136.132", 8082 )
 	if packet.is_listening():
@@ -31,14 +31,14 @@ func _ready():
 func _process(delta):
 	for i in range(0,get_child_count()):
 		if get_child(i).main:
-			json.p1.pos_x = get_child(i).motion.x
-			json.p1.pos_y = get_child(i).motion.y
-#			json.p1.pos_x = get_child(i).get_position().x
-#			json.p1.pos_y = get_child(i).get_position().y
+#			json.p1.pos_x = get_child(i).motion.x
+#			json.p1.pos_y = get_child(i).motion.y
+			json.p1.pos_x = get_child(i).get_position().x
+			json.p1.pos_y = get_child(i).get_position().y
 		else:
-			get_child(i).motion.x = json.p2.pos_x
-			get_child(i).motion.y = json.p2.pos_y
-#			get_child(i).set_position(Vector2(json.p2.pos_x,json.p2.pos_y))
+#			get_child(i).motion.x = json.p2.pos_x
+#			get_child(i).motion.y = json.p2.pos_y
+			get_child(i).set_position(Vector2(json.p2.pos_x,json.p2.pos_y))
 	if packet.get_available_packet_count() > 0:
 		data = (packet.get_packet())
 		string = data.get_string_from_ascii()
