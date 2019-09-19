@@ -40,13 +40,13 @@ func _process(delta):
 #			get_child(i).set_position(Vector2(json.p2.pos_x,json.p2.pos_y))
 	if packet.get_available_packet_count() > 0:
 		data = (packet.get_packet())
-		string = data.get_string_from_utf8()
-		json2 = parse_json(string)
-		print(data,string, json2)
-#		json.p2.pos_x = json2.p1.pos_x
-#		json.p2.pos_y = json2.p1.pos_y
+		string = data.get_string_from_ascii()
+		string.erase( 0, 44 )
+		print(string)
+		json.p2.pos_x = json2.p1.pos_x
+		json.p2.pos_y = json2.p1.pos_y
 	else:
-		packet.put_var(to_json(json))
+		packet.put_var(str(json))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
