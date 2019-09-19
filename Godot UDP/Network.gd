@@ -21,7 +21,8 @@ var port = 33333
 
 func _ready():
 	json2 = json
-	packet.set_dest_address( "127.0.0.1", port)
+#	packet.set_dest_address( "127.0.0.1", port)
+	packet.set_dest_address( "34.69.136.132", port)
 	packet.listen(  port+1, "*")
 #	packet.connect_to_host( "34.69.136.132", 8082 )
 	if packet.is_listening():
