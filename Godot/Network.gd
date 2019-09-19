@@ -30,12 +30,15 @@ func _process(delta):
 		if get_child(i).main:
 #			json.p1.pos_x = get_child(i).motion.x
 #			json.p1.pos_y = get_child(i).motion.y
-			json.p1.pos_x = get_child(i).get_position().x
-			json.p1.pos_y = get_child(i).get_position().y
+			json.p1.pos_x = get_child(i).get_global_position().x
+			json.p1.pos_y = get_child(i).get_global_position().y
 		else:
 #			get_child(i).motion.x = json.p2.pos_x
 #			get_child(i).motion.y = json.p2.pos_y
-			get_child(i).set_position(Vector2(json.p2.pos_x,json.p2.pos_y))
+			var pos = get_child(i).get_global_position()
+			var smooth_1 = 5
+			var smooth_2 = 6
+			get_child(i).set_global_position(Vector2(((pos.x*smooth_1)+json.p2.pos_x)/smooth_2 ,((pos.y*smooth_1)+json.p2.pos_y)/smooth_2 ))
 	var peerstream = PacketPeerStream.new()
 	peerstream.set_stream_peer(packet)
 	if peerstream.get_available_packet_count() > 0:
