@@ -10,7 +10,7 @@ server.on('listening', function() {
 });
 
 server.on('message', function(message, remote) {
-var msg = new Buffer(JSON.stringify(message));
+var msg = (JSON.stringify(message.toString()));
 console.log(remote.address + ':' + remote.port +' - ' + msg);
 var dgram = require('dgram');
 var client = dgram.createSocket('udp4');
