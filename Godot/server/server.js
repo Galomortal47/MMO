@@ -4,7 +4,7 @@ require('./config.js');
 var fs = require('fs');
 var net = require('net');
 require('./packet.js')
-require('./test.js');
+// require('./test.js');
 var data
 
 net.createServer(function(socket){

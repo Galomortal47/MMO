@@ -6,18 +6,18 @@ extends KinematicBody2D
 var motion = Vector2()
 export var main = true
 export var id = "res://save.json"
-var speed = 200
+var speed = 20
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
 	if main:
 		if Input.is_action_pressed("ui_up"):
-			motion.y = -speed
+			motion.y += -speed
 		elif Input.is_action_pressed("ui_down"):
-			motion.y = speed
+			motion.y += speed
 		elif Input.is_action_pressed("ui_right"):
-			motion.x = speed
+			motion.x += speed
 		elif Input.is_action_pressed("ui_left"):
-			motion.x = -speed
+			motion.x += -speed
 		else:
 			motion = Vector2(0,0)
 	motion = move_and_slide(motion)

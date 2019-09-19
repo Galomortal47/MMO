@@ -1,7 +1,7 @@
 var now = require('performance-now');
 var _ = require('underscore');
 require('./packet.js')
-require('./test.js')
+// require('./test.js')
 var packet = 'hello';
 var client = this;
 module.exports = function(){
